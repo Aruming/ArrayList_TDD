@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AppTest {
     @Test
@@ -87,4 +90,43 @@ public class AppTest {
 
         assertEquals(300, al.get(1));
     }
+
+    @Test
+    void 최초에_배열의_크기는_2_이다() {
+        ArrayList al = new ArrayList();
+
+        assertEquals(2, al.getArrayLength());
+    }
+
+    @Test
+    void 배열이_꽉_차면_2배_크기로_증가해야_한다() {
+        ArrayList al = new ArrayList();
+        al.add(100);
+        al.add(200);
+        assertEquals(2, al.getArrayLength());
+        al.add(300);
+        assertEquals(4, al.getArrayLength());
+    }
+
+    @Test
+    void showAllValues() {
+        ArrayList al = new ArrayList();
+        al.add(1000);
+        al.add(200);
+        al.add(30);
+
+        ByteArrayOutputStream output = TestUtil.setOutToByteArray();
+
+        al.showAllValues();
+
+        String rs = output.toString();
+
+        TestUtil.clearSetOutToByteArray(output);
+
+        assertTrue(rs.contains("== 전체 데이터 출력 =="));
+        assertTrue(rs.contains("0 : 1000"));
+        assertTrue(rs.contains("1 : 200"));
+        assertTrue(rs.contains("2 : 30"));
+    }
+
 }
