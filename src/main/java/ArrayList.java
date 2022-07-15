@@ -39,4 +39,9 @@ public class ArrayList {
     public int get(int index) {
         return data[index];
     }
+
+
+    public void removeAt(int index) {
+        data[index] = 0;
+    }
 }
