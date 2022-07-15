@@ -43,5 +43,9 @@ public class ArrayList {
 
     public void removeAt(int index) {
         data[index] = 0;
+        for(int i=index;i<size;i++){
+            data[i] = data[i+1];
+        }
+        size--;
     }
 }
