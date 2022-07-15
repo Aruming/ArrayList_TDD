@@ -1,7 +1,6 @@
 public class ArrayList {
     int size;
     int[] data;
-    int lastIndex;
 
     public ArrayList(){
         size = 0;
@@ -59,5 +58,15 @@ public class ArrayList {
         for ( int i = 0; i < size; i++ ) {
             System.out.printf("%d : %d\n", i, data[i]);
         }
+    }
+
+    public void addAt(int index, int value) {
+        sizeUpIfFull();
+
+        for(int i=size-1; i>=index; i--){
+            data[i+1] = data[i];
+        }
+        data[index] = value;
+        size++;
     }
 }

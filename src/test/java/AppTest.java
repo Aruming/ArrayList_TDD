@@ -129,4 +129,19 @@ public class AppTest {
         assertTrue(rs.contains("2 : 30"));
     }
 
+
+    @Test
+    void addAt(){
+        ArrayList al = new ArrayList();
+        al.add(1000);
+        al.add(200);
+        al.add(30);
+        al.addAt(1, 300);
+        al.add(500);
+
+        int rs = al.get(1);
+        int rs2 = al.size();
+        assertEquals(300, rs);
+        assertEquals(5, rs2);
+    }
 }
