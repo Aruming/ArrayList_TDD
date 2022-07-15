@@ -35,4 +35,8 @@ public class ArrayList {
     private boolean isFull() {
         return data.length==size;
     }
+
+    public int get(int index) {
+        return data[index];
+    }
 }
